@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-03-29T15:21:33</date>
+  <millis>1490772093229</millis>
+  <sequence>1</sequence>
+  <logger>com.paloit.windows.chrome.WindowsChromeRunner</logger>
+  <level>INFO</level>
+  <class>com.paloit.windows.ff.LoginWidgetVerification</class>
+  <method>tearDown</method>
+  <thread>1</thread>
+  <message>Tekki Login Feature is succesful!: Test Pass</message>
+</record>
+</log>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-03-29T15:33:30</date>
+  <millis>1490772810917</millis>
+  <sequence>2</sequence>
+  <logger>com.paloit.htmlunitdriver.LoginWidgetVerification</logger>
+  <level>INFO</level>
+  <class>com.paloit.htmlunitdriver.LoginWidgetVerification</class>
+  <method>tearDown</method>
+  <thread>1</thread>
+  <message>Tekki Login Feature is succesful!: Test Pass</message>
+</record>
+</log>
