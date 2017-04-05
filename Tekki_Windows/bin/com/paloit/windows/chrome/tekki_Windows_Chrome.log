@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-03-29T15:15:21</date>
-  <millis>1490771721838</millis>
+  <date>2017-04-04T11:15:55</date>
+  <millis>1491275755351</millis>
   <sequence>1</sequence>
   <logger>com.paloit.windows.chrome.WindowsChromeRunner</logger>
   <level>INFO</level>
