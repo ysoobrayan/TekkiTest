@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-04T11:12:10</date>
-  <millis>1491275530816</millis>
-  <sequence>2</sequence>
+  <date>2017-06-20T15:56:14</date>
+  <millis>1497945374471</millis>
+  <sequence>0</sequence>
   <logger>com.paloit.htmlunitdriver.LoginWidgetVerification</logger>
   <level>INFO</level>
   <class>com.paloit.htmlunitdriver.LoginWidgetVerification</class>

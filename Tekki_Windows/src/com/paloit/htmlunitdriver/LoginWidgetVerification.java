@@ -2,6 +2,12 @@ package com.paloit.htmlunitdriver;
 
 
 import java.util.regex.Pattern;
+import java.util.Properties;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import java.util.concurrent.TimeUnit;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
@@ -26,27 +32,39 @@ public class LoginWidgetVerification {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private final static Logger LOGGER = Logger.getLogger(LoginWidgetVerification.class.getName());
-
+  private Properties configFile;
+ 
+  
+  public void init() throws FileNotFoundException, IOException
+  {
+	  configFile=loadProperties("D:\\Properties\\test.prop"); //JAYESH PLEASE CHANGE THIS PATHE TP POINT TO PROP FILE
+  }
+  
   @Before
   public void setUp() throws Exception {
 	System.out.println("Run Started! HtmlUnitDriver");
+	init();
 	Handler fileHandler  = new FileHandler("./src/com/paloit/htmlunitdriver/tekki_Windows_htmlunitdriver.log");
 	LOGGER.addHandler(fileHandler);
 	//Setting levels to handlers and LOGGER
 	fileHandler.setLevel(Level.ALL);
 	LOGGER.setLevel(Level.ALL);
 	driver = new HtmlUnitDriver();
-    baseUrl = "http://192.168.0.244:8000/";
+    baseUrl = configFile.getProperty("base_url").toString();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testHelloTekki() throws Exception {
-    driver.get(baseUrl + "/auth/login?next=%2F");
+	
+	driver.get(baseUrl + "/auth/login?next=%2F");
+	System.out.println("BASE URL = " + baseUrl);
     driver.findElement(By.id("username")).clear();
-    driver.findElement(By.id("username")).sendKeys("achal");
+    //driver.findElement(By.id("username")).sendKeys("achal");
+    driver.findElement(By.id("username")).sendKeys(configFile.getProperty("username"));
     driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys("achal");
+    //driver.findElement(By.id("password")).sendKeys("achal");
+    driver.findElement(By.id("password")).sendKeys(configFile.getProperty("password"));
     driver.findElement(By.name("user_login")).click();
     try {
         assertEquals(driver.findElements(By.xpath("//div[@id='container']/div/div[2]/div[2]/div[2]/div/ul/li[1]/div")).size(), 1);
@@ -119,5 +137,16 @@ public class LoginWidgetVerification {
     } finally {
       acceptNextAlert = true;
     }
+  }
+  
+  private Properties loadProperties(String propFileName) throws FileNotFoundException, IOException
+  {
+	  File propFile = new File (propFileName);
+	  FileInputStream inputFileStream = new FileInputStream(propFile);
+	  Properties propLoad = new Properties();
+	  propLoad.load(inputFileStream);
+	  //inputFileStream.close();
+	  return propLoad;
+	  
   }
 }
